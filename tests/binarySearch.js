@@ -23,7 +23,19 @@ const binarySearch = (array, target) => {
   return -1;
 };
 
+const lienarSearch = (array, target) => {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === target) {
+      return i;
+    }
+  }
+
+  return -1;
+};
+
 console.log(binarySearch(exampleArray, 37));
-console.log(binarySearch(exampleArray, 1));
-console.log(binarySearch(exampleArray, 59));
-console.log(binarySearch(exampleArray, 99));
+console.log(lienarSearch(exampleArray, 37));
+
+//console.log(binarySearch(exampleArray, 1));
+//console.log(binarySearch(exampleArray, 59));
+//console.log(binarySearch(exampleArray, 99));
