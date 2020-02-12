@@ -14,21 +14,20 @@ function linkedlist(vals) {
       result = current;
     }
   }
-  return result;
+  this.result = result;
+  return this;
 }
 
-linkedlist.prototype.getAt = function(index) {
-  console.log("getAt");
+linkedlist.prototype.getAt = index => {
   let counter = 0;
-  let node = this;
-  console.log(node);
-
+  let node = this.result;
+  console.log(this);
   while (node) {
     if (counter === index) {
       return node.val;
     }
     counter++;
-    node = node.next;
+    node = node.next.node;
   }
   return null;
 };
@@ -42,4 +41,4 @@ const list1 = new linkedlist(values1);
 //const list2 = linkedlist(values2);
 
 console.log(list1);
-console.log(list1.prototype.getAt(0));
+console.log(list1.getAt(0));
