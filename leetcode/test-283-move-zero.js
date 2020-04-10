@@ -60,6 +60,10 @@ var moveZeroes_3 = function (nums) {
   return nums;
 };
 
+var moveZeroes_4 = function (nums) {
+  return nums.filter((x) => x !== 0).concat(...nums.filter((x) => x === 0));
+};
+
 var moveZeroes = function (nums) {
   let i = 0,
     j = 1,
@@ -82,4 +86,5 @@ var moveZeroes = function (nums) {
 
 // timing(moveZeroes, [0, 1, 0, 3, 12]);
 
-console.log(moveZeroes([2, 1]));
+//console.log(moveZeroes([2, 1]));
+console.log(moveZeroes_4([0,1,0,3,12]));
