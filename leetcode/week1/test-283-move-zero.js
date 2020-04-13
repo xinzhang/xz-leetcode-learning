@@ -21,7 +21,7 @@ Minimize the total number of operations
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */
-const timing = require("./timing");
+const timing = require("../timing");
 
 var moveZeroes_1 = function (nums) {
   let i = 0;
