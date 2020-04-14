@@ -23,34 +23,21 @@ function TreeNode(val) {
 
 var findTreeDepth = function (root) {
     if (root === null) return 0;
-    else if (root.left === null && root.right === null) {
-        return 1;
-    } else if (root.left === null && root.right !== null) {
-        return 1 + findTreeDepth(root.right);
-    } else if (root.left !== null && root.right === null) {
-        return 1 + findTreeDepth(root.left);
-    } else {
-        return 1 + Math.max(findTreeDepth(root.left), findTreeDepth(root.right));
-    }
+    return 1 + Math.max(findTreeDepth(root.left), findTreeDepth(root.right));
 };
 
 var diameterOfBinaryTree = function (root) {
-    let passroot = true;
     if (root === null) {
         return 0;
-    } else if (root.left === null && root.right === null) {
-        return 0;
-    } else if (root.left === null && root.right !== null) {
-        passroot = true;
-    } else if (root.left !== null && root.right === null) {
-        passroot = true;
     }
 
-    if (passroot) {
-        return findTreeDepth(root.left) + findTreeDepth(root.right);
-    } else {
-        return 1 + Math.max(findTreeDepth(root.left), findTreeDepth(root.right));
-    }
+    let lHeight = findTreeDepth(root.left);
+    let rHeight = findTreeDepth(root.right);
+
+    let ldiameter = diameterOfBinaryTree(root.left);
+    let rdiameter = diameterOfBinaryTree(root.right);
+
+    return Math.max(lHeight + rHeight, Math.max(ldiameter, rdiameter));
 };
 
 function insertOrderByLevel(arr, root, i) {
